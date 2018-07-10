@@ -13,9 +13,3 @@ else
   ECS_INSTANCES_IDS=$($AWS_CLI ec2 describe-instances --region $REGION --filters 'Name=tag:aws:autoscaling:groupName,Values='$ASG_NAME 'Name=instance-state-name,Values=running' | jq -r '.Reservations[].Instances[].InstanceId' | tr "\n" " ")
 fi
 $AWS_CLI ec2 describe-instances --region $REGION --instance-ids ${ECS_INSTANCES_IDS:-$INSTANCE_ID} --filters 'Name=instance-state-name,Values=running' | jq -r '.Reservations[].Instances[].PrivateIpAddress'
-
-: > /etc/resolv.conf
-
-echo "search service.consul" >> /etc/resolv.conf
-echo "options timeout:2 attempts:5" >> /etc/resolv.conf
-echo "nameserver $PRIVATE_IP" >> /etc/resolv.conf
