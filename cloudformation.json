@@ -754,10 +754,6 @@
                      "/etc/weave/peers.sh": {
                        "source": "https://raw.github.com/serefacet/tdc2017microservices/master/to-upload/peers.sh",
                        "mode": "000755"
-                     },
-                     "/etc/default/resolv.sh": {
-                       "source": "https://raw.github.com/serefacet/tdc2017microservices/master/to-upload/resolv.sh",
-                       "mode": "000755"
                      }
                   }
                }
