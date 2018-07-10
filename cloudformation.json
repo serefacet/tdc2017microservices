@@ -573,7 +573,7 @@
                       "ecs:ListClusters",
                       "ecs:ListContainerInstances",
                       "ecs:DescribeContainerInstances",
-  		    "ecs:ListServices",
+          "ecs:ListServices",
                       "ecs:DescribeTasks",
                       "ecs:DescribeServices",
                       "ec2:DescribeInstances",
@@ -635,6 +635,10 @@
                      [
                         "#!/bin/bash -ex",
                         "yum install -y aws-cfn-bootstrap",
+                        "yum install jq -y",
+                        "yum install python-pip -y",
+                        "ln -s /usr/bin/python-pip /usr/bin/pip",
+                        "pip install awscli",
                         {
                            "Fn::Join":[
                               " ",
@@ -708,47 +712,51 @@
                        "mode": "000755"
                      },
                      "/etc/init/ecs.override": {
-                       "source": "https://raw.github.com/panga/tdc2017microservices/master/to-upload/ecs.override"
+                       "source": "https://raw.github.com/serefacet/tdc2017microservices/master/to-upload/ecs.override"
                      },
                      "/etc/init/weave.conf": {
-                       "source": "https://raw.github.com/panga/tdc2017microservices/master/to-upload/weave.conf"
+                       "source": "https://raw.github.com/serefacet/tdc2017microservices/master/to-upload/weave.conf"
                      },
                      "/etc/init/cadvisor.conf": {
-                       "source": "https://raw.github.com/panga/tdc2017microservices/master/to-upload/cadvisor.conf"
+                       "source": "https://raw.github.com/serefacet/tdc2017microservices/master/to-upload/cadvisor.conf"
                      },
                      "/etc/init/consul.conf": {
-                       "source": "https://raw.github.com/panga/tdc2017microservices/master/to-upload/consul.conf"
+                       "source": "https://raw.github.com/serefacet/tdc2017microservices/master/to-upload/consul.conf"
                      },
                      "/etc/init/node-exporter.conf": {
-                       "source": "https://raw.github.com/panga/tdc2017microservices/master/to-upload/node-exporter.conf"
+                       "source": "https://raw.github.com/serefacet/tdc2017microservices/master/to-upload/node-exporter.conf"
                      },
                      "/etc/init/proxy.conf": {
-                       "source": "https://raw.github.com/panga/tdc2017microservices/master/to-upload/proxy.conf"
+                       "source": "https://raw.github.com/serefacet/tdc2017microservices/master/to-upload/proxy.conf"
                      },
                      "/etc/init/registrator.conf": {
-                       "source": "https://raw.github.com/panga/tdc2017microservices/master/to-upload/registrator.conf"
+                       "source": "https://raw.github.com/serefacet/tdc2017microservices/master/to-upload/registrator.conf"
                      },
                      "/etc/sysconfig/docker": {
-                       "source": "https://raw.github.com/panga/tdc2017microservices/master/to-upload/docker"
+                       "source": "https://raw.github.com/serefacet/tdc2017microservices/master/to-upload/docker"
                      },
                      "/etc/default/weave": {
-                       "source": "https://raw.github.com/panga/tdc2017microservices/master/to-upload/weave"
+                       "source": "https://raw.github.com/serefacet/tdc2017microservices/master/to-upload/weave"
                      },
                      "/etc/default/aws": {
-                       "source": "https://raw.github.com/panga/tdc2017microservices/master/to-upload/aws"
+                       "source": "https://raw.github.com/serefacet/tdc2017microservices/master/to-upload/aws"
                      },
                      "/etc/default/consul": {
-                       "source": "https://raw.github.com/panga/tdc2017microservices/master/to-upload/consul"
+                       "source": "https://raw.github.com/serefacet/tdc2017microservices/master/to-upload/consul"
                      },
                      "/etc/default/proxy": {
-                       "source": "https://raw.github.com/panga/tdc2017microservices/master/to-upload/proxy"
+                       "source": "https://raw.github.com/serefacet/tdc2017microservices/master/to-upload/proxy"
                      },
                      "/etc/weave/run.sh": {
-                       "source": "https://raw.github.com/panga/tdc2017microservices/master/to-upload/run.sh",
+                       "source": "https://raw.github.com/serefacet/tdc2017microservices/master/to-upload/run.sh",
                        "mode": "000755"
                      },
                      "/etc/weave/peers.sh": {
-                       "source": "https://raw.github.com/panga/tdc2017microservices/master/to-upload/peers.sh",
+                       "source": "https://raw.github.com/serefacet/tdc2017microservices/master/to-upload/peers.sh",
+                       "mode": "000755"
+                     },
+                     "/etc/default/resolv.sh": {
+                       "source": "https://raw.github.com/serefacet/tdc2017microservices/master/to-upload/resolv.sh",
                        "mode": "000755"
                      }
                   }
